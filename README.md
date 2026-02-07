@@ -2,7 +2,7 @@
 
 **YARA Rule Generator & Testing Platform**
 
-A Flask-based platform for building, managing, testing, and visualizing YARA rules — with MITRE ATT&CK mapping and a detection dashboard.
+A Flask-based platform for building, managing, testing, and visualizing YARA rules — with MITRE ATT&CK mapping and a detection dashboard. Built with Python/Flask.
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
 ![Flask](https://img.shields.io/badge/Flask-3.0-green?logo=flask)
@@ -11,33 +11,47 @@ A Flask-based platform for building, managing, testing, and visualizing YARA rul
 
 ---
 
+## Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+Real-time detection overview with rule statistics, MITRE ATT&CK coverage heat map, severity distribution, and recent scan history.
+
+---
+
 ## Features
 
 ### Rule Builder
-- **Guided mode** — form-based string/condition builder that generates valid YARA syntax
+
+![Rule Builder](screenshots/rule-builder.png)
+
+- **Guided mode** — form-based string/condition builder that generates valid YARA syntax automatically
 - **Raw editor** — full YARA syntax editor with real-time validation
 - **MITRE ATT&CK mapping** — tag rules with technique IDs for coverage tracking
 - **Metadata management** — severity levels, categories, tags, and author attribution
 
 ### Rule Manager
+
+![Rule Manager](screenshots/rule-manager.png)
+
 - Search, filter, and organize rules by category and severity
 - Toggle rules active/inactive for selective scanning
 - Version history tracking for rule changes
 - Inline edit and delete with confirmation
 
 ### File Scanner
+
+![Scanner](screenshots/scanner.png)
+
 - Drag-and-drop file upload for scanning
 - Scan against all active YARA rules simultaneously
 - Detailed match results with string offsets and hex data
 - Scan history with performance metrics
 
-### Detection Dashboard
-- Overview statistics: total rules, scans, matches, MITRE coverage
-- Category distribution and severity breakdown charts
-- MITRE ATT&CK technique coverage heat map
-- Recent scan history table
-
 ### Import / Export
+
+![Import Export](screenshots/import-export.png)
+
 - Import `.yar` files with automatic rule parsing and validation
 - Export selected or all rules to a single `.yar` file
 - Duplicate detection during import
@@ -59,47 +73,38 @@ A Flask-based platform for building, managing, testing, and visualizing YARA rul
 ## Installation
 
 ### Prerequisites
-- Python 3.9 or higher
+
+- Python 3.9 – 3.12 recommended (3.13+ may have compatibility issues with yara-python)
 - pip package manager
 
-### Step-by-Step Setup
+### Setup
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YaraForge.git
-   cd YaraForge
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Rootless-Ghost/YaraForge.git
+cd YaraForge
 
-2. **Create a virtual environment** (recommended)
-   ```bash
-   python -m venv venv
+# Create a virtual environment
+python -m venv venv
 
-   # Windows
-   venv\Scripts\activate
+# Activate — Windows
+venv\Scripts\activate
 
-   # Linux/Mac
-   source venv/bin/activate
-   ```
+# Activate — Linux/Mac
+source venv/bin/activate
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-   > **Note:** On some systems, `yara-python` may require C compilation tools.
-   > - **Windows:** Install [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-   > - **Linux:** `sudo apt install build-essential libssl-dev`
-   > - **Alternative:** `pip install yara-python-dex` (pre-compiled wheels)
+# Run the application
+python app.py
+```
 
-4. **Run the application**
-   ```bash
-   python app.py
-   ```
+Open your browser to `http://127.0.0.1:5000`
 
-5. **Open in browser**
-   ```
-   http://127.0.0.1:5000
-   ```
+> **Note:** If `yara-python` fails to install, you may need C compilation tools:
+> - **Windows:** Install [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+> - **Linux:** `sudo apt install build-essential libssl-dev`
 
 ---
 
@@ -132,9 +137,9 @@ YaraForge/
 │   └── import_export.html # Import/export interface
 ├── sample_rules/
 │   └── starter_rules.yar  # 6 pre-built detection rules
+├── screenshots/           # Application screenshots
 ├── rules/                 # Stored rule files
-├── uploads/               # Temporary scan uploads
-└── README.md
+└── uploads/               # Temporary scan uploads
 ```
 
 ---
@@ -143,17 +148,17 @@ YaraForge/
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/rules` | Create a new rule |
-| PUT | `/api/rules/<id>` | Update an existing rule |
-| DELETE | `/api/rules/<id>` | Delete a rule |
-| POST | `/api/rules/<id>/toggle` | Toggle rule active status |
-| GET | `/api/rules/<id>/versions` | Get rule version history |
-| POST | `/api/validate` | Validate YARA rule syntax |
-| POST | `/api/generate` | Generate rule from parameters |
-| POST | `/api/scan` | Scan a file against active rules |
-| POST | `/api/import` | Import rules from .yar file |
-| POST | `/api/export` | Export rules to .yar file |
-| GET | `/api/stats` | Get dashboard statistics |
+| `POST` | `/api/rules` | Create a new rule |
+| `PUT` | `/api/rules/<id>` | Update an existing rule |
+| `DELETE` | `/api/rules/<id>` | Delete a rule |
+| `POST` | `/api/rules/<id>/toggle` | Toggle rule active status |
+| `GET` | `/api/rules/<id>/versions` | Get rule version history |
+| `POST` | `/api/validate` | Validate YARA rule syntax |
+| `POST` | `/api/generate` | Generate rule from parameters |
+| `POST` | `/api/scan` | Scan a file against active rules |
+| `POST` | `/api/import` | Import rules from .yar file |
+| `POST` | `/api/export` | Export rules to .yar file |
+| `GET` | `/api/stats` | Get dashboard statistics |
 
 ---
 
@@ -204,10 +209,8 @@ YaraForge/
 
 ## License
 
-MIT License
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## Author
-
-Built as a cybersecurity portfolio project demonstrating detection engineering, YARA rule development, and full-stack web application skills.
+**Built as a cybersecurity portfolio project demonstrating detection engineering, YARA rule development, and full-stack Python web application skills.**
