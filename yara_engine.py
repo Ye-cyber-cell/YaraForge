@@ -50,14 +50,23 @@ def compile_rules_from_db(rules):
             yara.compile(source=rule["rule_content"])
             sources[f"rule_{rule['id']}"] = rule["rule_content"]
         except Exception as e:
-            errors.append(f"Rule '{rule['name']}' (ID: {rule['id']}): {str(e)}")
+            # Log full exception details server-side, but do not expose them to the client
+            logging.exception(
+                "Error compiling YARA rule from DB (id=%s, name=%s)",
+                rule.get("id"),
+                rule.get("name"),
+            )
+            # Return a generic error message that does not include internal exception details
+            errors.append(f"Rule '{rule.get('name', 'unknown')}' (ID: {rule.get('id', 'unknown')}): failed to compile")
     if not sources:
         return None, errors or ["No valid rules to compile"]
     try:
         compiled = yara.compile(sources=sources)
         return compiled, errors
     except Exception as e:
-        return None, errors + [f"Compilation error: {str(e)}"]
+        # Log detailed combined compilation failure, but keep client message generic
+        logging.exception("Failed to compile combined YARA rules from DB sources")
+        return None, errors + ["Compilation error while compiling YARA rules"]
 
 
 def scan_file(file_path, rules):
@@ -128,7 +137,14 @@ def scan_file(file_path, rules):
     except yara.TimeoutError:
         return {"success": False, "error": "Scan timed out (30s limit)", "matches": [], "duration_ms": 30000}
     except Exception as e:
-        return {"success": False, "error": str(e), "matches": [], "duration_ms": (time.time() - start_time) * 1000}
+        # Log full exception details server-side, but expose only a generic error message
+        logging.exception("Unexpected error while scanning file with YARA")
+        return {
+            "success": False,
+            "error": "Unexpected error while scanning file",
+            "matches": [],
+            "duration_ms": (time.time() - start_time) * 1000,
+        }
 
 
 def generate_rule_template(rule_name, description="", author="YaraForge User",
