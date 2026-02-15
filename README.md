@@ -5,12 +5,11 @@
 
 
 **YARA Rule Generator & Testing Platform**
-</div>
 
 
 A Flask-based platform for building, managing, testing, and visualizing YARA rules — with MITRE ATT&CK mapping and a detection dashboard. Built with Python/Flask.
 
-<div align="center">
+
   
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
 ![Flask](https://img.shields.io/badge/Flask-3.0-green?logo=flask)
