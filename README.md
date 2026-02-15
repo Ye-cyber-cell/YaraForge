@@ -214,7 +214,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 ---
 
 
-## Author - **Rootless-Ghost**
+## Author **Rootless-Ghost**
 
 Purple Team & SOC Focus
 
