@@ -2,9 +2,11 @@
 
 # 🔬 YaraForge
 
-</div>
+
 
 **YARA Rule Generator & Testing Platform**
+</div>
+
 
 A Flask-based platform for building, managing, testing, and visualizing YARA rules — with MITRE ATT&CK mapping and a detection dashboard. Built with Python/Flask.
 
