@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚒ YaraForge
+# 🔬 YaraForge
 
 </div>
 **YARA Rule Generator & Testing Platform**
